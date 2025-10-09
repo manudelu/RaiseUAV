@@ -50,3 +50,33 @@ The Level Blueprint orchestrates runtime logic:
 
 ---
 
+## Importing a Georeferenced Gaussian Splatting Model
+
+This project supports high-fidelity Gaussian Splatting environments using the XScene-UE Plugin. To ensure correct positioning and alignment with Cesium tiles, follow the steps below.
+
+### Prerequisites
+Before importing, make sure you have:
+* Trained a georeferenced Gaussian Splat following the workflow in [this](https://github.com/manudelu/georeferenced_gsplat.git) repository.
+* Exported the .splat or packaged model compatible with XScene-UEPlugin.
+* Identified the GPS coordinates (Lat, Lon, Alt) of the first frame / reference image used during training (this serves as the model’s origin).
+
+### Step-by-Step Import into Unreal Engine
+*1. Install XScene-UE Plugin*
+* Clone or download: https://github.com/xverse-engine/XScene-UEPlugin
+* Place it under Plugins/ and restart Unreal Engine
+* Enable it via Edit → Plugins → XScene-UE
+
+*2. Import the Gaussian Splatting Model*
+* Go to XScene → Import
+* Select your trained Gaussian Splat package
+* It will appear under Content Browser ➜ XScene
+
+*3. Place It Under Cesium Tiles in World Outliner*
+* In the World Outliner, locate Google Photorealistic 3D Tiles
+* Drag your Gaussian Splat actor as a child of Cesium’s tileset (This ensures consistent origin & streaming alignment)
+
+*4. Attach a CesiumGlobeAnchor Component*
+* Select your Gaussian Splat actor
+* Click Add Component → CesiumGlobeAnchor
+* Enter the Lat, Lon, Alt of the reference frame (first training image)
+* Unreal will reposition & anchor the Gaussian Splat into the correct global coordinate system
