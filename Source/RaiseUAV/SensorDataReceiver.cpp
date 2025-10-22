@@ -17,9 +17,10 @@ void ASensorDataReceiver::HandleMessage(const FString& Message)
     float X = JsonObject->GetNumberField(TEXT("x"));
     float Y = JsonObject->GetNumberField(TEXT("y"));
     float Z = JsonObject->GetNumberField(TEXT("z"));
-    FString Label = JsonObject->GetStringField(TEXT("label"));
+    FString temp = JsonObject->GetStringField(TEXT("temp"));
+    FString height_level = JsonObject->GetStringField(TEXT("height_level"));
 
     FVector Location(X, Y, Z);
 
-    OnSensorDataReceived(SensorId, Location, Label);
+    OnSensorDataReceived(SensorId, Location, temp, height_level);
 }

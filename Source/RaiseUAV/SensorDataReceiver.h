@@ -11,7 +11,7 @@ class RAISEUAV_API ASensorDataReceiver : public ABaseWebSocketReceiver
 
 public:
     UFUNCTION(BlueprintImplementableEvent, Category = "Sensor")
-    void OnSensorDataReceived(const FString& SensorId, const FVector& Location, const FString& Label);
+    void OnSensorDataReceived(const FString& SensorId, const FVector& Location, const FString& temp, const FString& height_level);
 
 protected:
     /** Use different port or URL if needed */
