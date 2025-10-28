@@ -50,6 +50,14 @@
 		{
 			"Name": "SerializationUtils",
 			"Enabled": true
+		},
+		{
+			"Name": "XV3dGS",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/d186799254dc405f9bde7a2a81b34733",
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
 		}
 	]
 }
